@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="teacherInfo"
+            type="test.dmdfchina.com.scroll_suspend.TeacherInfoBean.DBean" />
+    </data>
+
+    <test.dmdfchina.com.scroll_suspend.CustomScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/te_scroll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <!--头部-->
+           <!-- <include layout="@layout/scroll_suspend_layout" />-->
+
+            <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RelativeLayout
+                    android:id="@+id/bg_tea"
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:background="@mipmap/bg_tea" />
+
+                <ImageView
+                    android:layout_width="13dp"
+                    android:layout_height="22dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:src="@mipmap/gobakc" />
+
+                <ImageView
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="10dp"
+                    android:src="@mipmap/sharevideo" />
+
+                <FrameLayout
+                    android:id="@+id/t_port_layout"
+                    android:layout_width="70dp"
+                    android:layout_height="115dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="55dp">
+
+                    <ImageView
+                        android:id="@+id/t_port"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        app:teacher_img="@{teacherInfo.teacher_img}"
+                        android:src="@mipmap/ic_launcher" />
+                </FrameLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="25dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="90dp"
+                    android:layout_toRightOf="@id/t_port_layout"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tea_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginRight="10dp"
+                        android:gravity="center_horizontal|center"
+                        android:text="@{teacherInfo.teacher_name}"
+                        android:textColor="#ffffff"
+                        android:textSize="17sp" />
+
+                    <ImageView
+                        android:id="@+id/atted_orNot"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="left"
+                        android:src="@mipmap/attention_2x" />
+                </LinearLayout>
+                <TextView
+                    android:id="@+id/myFans"
+                    android:layout_width="wrap_content"
+                    android:layout_height="25dp"
+                    android:layout_below="@id/t_port_layout"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:gravity="center_horizontal|center_vertical"
+                    android:text="粉丝:"
+                    android:textColor="#757575"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/tea_fans"
+                    android:layout_toRightOf="@id/myFans"
+                    android:layout_width="wrap_content"
+                    android:layout_height="25dp"
+                    android:layout_below="@id/t_port_layout"
+                    android:text="@{teacherInfo.fans}"
+                    android:textColor="#757575"
+                    android:textSize="14sp" />
+
+                <LinearLayout
+                    android:id="@+id/resume_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tea_fans"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tea_resume"
+                        android:layout_width="wrap_content"
+                        android:layout_height="25dp"
+                        android:layout_below="@id/t_port_layout"
+                        android:layout_marginLeft="15dp"
+                        android:text="简介:"
+                        android:textColor="#757575"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/tea_resume_info"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/t_port_layout"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="15dp"
+                        android:text="@{teacherInfo.content}"
+                        android:textColor="#212121"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
+                <View
+                    android:id="@+id/sep"
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp"
+                    android:layout_below="@id/resume_layout"
+                    android:background="#f0f0f0" />
+            </RelativeLayout>
+
+            <!--悬停后滑动的部分-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="2000dp"
+                android:layout_marginTop="330dp"
+                android:orientation="vertical">
+
+                <ListView
+                    android:id="@+id/course_listView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scrollbars="none" />
+            </LinearLayout>
+            <!--存放悬停的部分-->
+            <RelativeLayout
+                android:id="@+id/v_space"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="280dp">
+
+            </RelativeLayout>
+            <!--悬停的部分-->
+            <RelativeLayout
+                android:id="@+id/stick_view"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="#ff6699"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/goBack"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:padding="10dp"
+                    android:src="@mipmap/gobakc" />
+
+                <ImageView
+                    android:id="@+id/share_teac"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:padding="10dp"
+                    android:src="@mipmap/sharevideo" />
+
+                <TextView
+                    android:id="@+id/tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_toRightOf="@id/goBack"
+                    android:gravity="left|center_vertical"
+                    android:text="主讲课"
+                    android:textSize="16sp" />
+
+            </RelativeLayout>
+        </FrameLayout>
+
+    </test.dmdfchina.com.scroll_suspend.CustomScrollView>
+</layout>

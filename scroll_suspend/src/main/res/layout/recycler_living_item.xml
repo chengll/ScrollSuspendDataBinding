@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="courseInfo"
+            type="test.dmdfchina.com.scroll_suspend.TeacherInfoBean.DBean"/>
+        <variable
+            name="list"
+            type="test.dmdfchina.com.scroll_suspend.TeacherInfoBean.DBean.ListBean"/>
+    </data>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="horizontal"
+    android:layout_marginTop="3dp"
+    android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/living_img_recy"
+            android:layout_width="129dp"
+            android:layout_height="73dp"
+            android:layout_gravity="center_vertical|center"
+            android:scaleType="centerCrop"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="10dp"
+            app:image="@{list.list}"
+            android:src="@mipmap/mmj" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.8"
+        android:layout_marginLeft="12dp"
+        android:layout_marginTop="5dp"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/living_title_recy"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.8"
+            android:gravity="center|left"
+            android:textColor="#212121"
+            android:text="@{list.lesson_name}"
+            android:textSize="13sp"
+            android:paddingBottom="3dp"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.5"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/living_teacher_recy"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center|left"
+                android:text="@{courseInfo.teacher_name}"
+                android:textColor="#b9b9b9"
+                android:paddingBottom="3dp"
+                android:textSize="13sp" />
+
+            <TextView
+                android:id="@+id/living_teacher_fans_recy"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center|left"
+                android:textColor="#b9b9b9"
+                android:text="101672人学过"
+                android:textSize="13sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.4"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/living_teacher_price_recy"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="免费"
+                android:gravity="center|left"
+                android:textColor="#2cbf77"
+                android:textSize="13sp" />
+
+            <TextView
+                android:id="@+id/living_teacher_try_rec"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:layout_weight="1"
+                android:gravity="center|right"
+                android:paddingBottom="3dp"
+                android:text="可试看"
+                android:textColor="#2cbf77"
+                android:textSize="13sp" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>
+</layout>
